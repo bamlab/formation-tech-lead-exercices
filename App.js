@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import FastImage from 'react-native-fast-image';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -53,7 +54,18 @@ const App: () => Node = () => {
         style={{
           marginTop: 50,
         }}>
-        <Button title="Click to preload ./toto.png" onPress={() => {}} />
+        <Button
+          title="Click to preload /toto.png"
+          onPress={() => {
+            FastImage.preload([{uri: '/toto.png'}]);
+          }}
+        />
+        <Button
+          title="Click to preload https://google.com/toto.png"
+          onPress={() => {
+            FastImage.preload([{uri: 'https://google.com/toto.png'}]);
+          }}
+        />
       </View>
     </SafeAreaView>
   );
