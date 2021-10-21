@@ -6,19 +6,37 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import type {Node} from 'react';
-import {
-  Button,
-  SafeAreaView,
-  StatusBar,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {Button, SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import FastImage from 'react-native-fast-image';
+import {RNInternals} from './pages/RNInternals/RNInternals';
+import {EventLoop} from './pages/EventLoop/EventLoop';
+
+const Menu = ({setCurrentPage}) => {
+  return (
+    <>
+      <Button
+        title={'RNInternals'}
+        onPress={() => setCurrentPage('RNInternals')}
+      />
+      <Button title={'EventLoop'} onPress={() => setCurrentPage('EventLoop')} />
+    </>
+  );
+};
+
+const Navigation: () => Node = ({currentPage, setCurrentPage}) => {
+  switch (currentPage) {
+    case 'RNInternals':
+      return <RNInternals />;
+    case 'EventLoop':
+      return <EventLoop />;
+
+    default:
+      return <Menu setCurrentPage={setCurrentPage} />;
+  }
+};
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -27,46 +45,15 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const [currentPage, setCurrentPage] = useState(null);
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <View style={{top: 40}}>
-        <View
-          style={{
-            backgroundColor: 'blue',
-            zIndex: 2,
-            top: 10,
-            position: 'absolute',
-          }}>
-          <Text>This view should be above</Text>
-        </View>
-        <View
-          style={{
-            backgroundColor: 'green',
-            zIndex: 1,
-            elevation: 1,
-          }}>
-          <Text>This view should be below</Text>
-        </View>
-      </View>
-
-      <View
-        style={{
-          marginTop: 50,
-        }}>
-        <Button
-          title="Click to preload /toto.png"
-          onPress={() => {
-            FastImage.preload([{uri: '/toto.png'}]);
-          }}
-        />
-        <Button
-          title="Click to preload https://google.com/toto.png"
-          onPress={() => {
-            FastImage.preload([{uri: 'https://google.com/toto.png'}]);
-          }}
-        />
-      </View>
+      {!!currentPage && (
+        <Button title="back to menu" onPress={() => setCurrentPage(null)} />
+      )}
+      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </SafeAreaView>
   );
 };
