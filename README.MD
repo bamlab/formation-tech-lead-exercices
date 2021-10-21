@@ -6,3 +6,4 @@ Each challenge has a page on the app, and a `docs` page explaining what is expec
 ## List of exercises
 
 - [React Native Internals](./docs/RNInternals.md)
+- [Javascript Event Loop](./docs/EventLoop.md)

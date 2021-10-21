@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert, Button, View, Text} from 'react-native';
+import {Alert, Button, View} from 'react-native';
 
 const AnimatableCube = ({position}) => {
   return (
