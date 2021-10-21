@@ -12,6 +12,7 @@ import {Button, SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {RNInternals} from './pages/RNInternals/RNInternals';
+import {EventLoop} from './pages/EventLoop/EventLoop';
 
 const Menu = ({setCurrentPage}) => {
   return (
@@ -20,6 +21,7 @@ const Menu = ({setCurrentPage}) => {
         title={'RNInternals'}
         onPress={() => setCurrentPage('RNInternals')}
       />
+      <Button title={'EventLoop'} onPress={() => setCurrentPage('EventLoop')} />
     </>
   );
 };
@@ -28,6 +30,9 @@ const Navigation: () => Node = ({currentPage, setCurrentPage}) => {
   switch (currentPage) {
     case 'RNInternals':
       return <RNInternals />;
+    case 'EventLoop':
+      return <EventLoop />;
+
     default:
       return <Menu setCurrentPage={setCurrentPage} />;
   }
