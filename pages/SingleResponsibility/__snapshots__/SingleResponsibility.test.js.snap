@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-Array [
+<View
+  style={
+    Object {
+      "height": 400,
+      "justifyContent": "space-around",
+      "padding": 30,
+    }
+  }
+>
   <View
     accessibilityState={
       Object {
@@ -31,7 +39,7 @@ Array [
       Object {
         "alignItems": "center",
         "backgroundColor": "white",
-        "borderColor": undefined,
+        "borderColor": "rgba(0,0,0,0)",
         "borderRadius": 40,
         "borderWidth": 1,
         "height": 40,
@@ -44,13 +52,13 @@ Array [
     <Text
       style={
         Object {
-          "color": "blue",
+          "color": "grey",
         }
       }
     >
       A
     </Text>
-  </View>,
+  </View>
   <View
     accessibilityState={
       Object {
@@ -80,7 +88,7 @@ Array [
       Object {
         "alignItems": "center",
         "backgroundColor": "grey",
-        "borderColor": undefined,
+        "borderColor": "rgba(0,0,0,0)",
         "borderRadius": 40,
         "borderWidth": 1,
         "height": 40,
@@ -99,7 +107,7 @@ Array [
     >
       G
     </Text>
-  </View>,
+  </View>
   <View
     accessibilityState={
       Object {
@@ -128,7 +136,7 @@ Array [
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "salmon",
+        "backgroundColor": "papayawhip",
         "borderColor": "red",
         "borderRadius": 40,
         "borderWidth": 1,
@@ -142,13 +150,13 @@ Array [
     <View
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "salmon",
           "height": 15,
           "width": 15,
         }
       }
     />
-  </View>,
+  </View>
   <View
     accessibilityState={
       Object {
@@ -177,8 +185,8 @@ Array [
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "salmon",
-        "borderColor": undefined,
+        "backgroundColor": "papayawhip",
+        "borderColor": "rgba(0,0,0,0)",
         "borderRadius": 40,
         "borderWidth": 1,
         "height": 40,
@@ -197,6 +205,6 @@ Array [
     >
       P
     </Text>
-  </View>,
-]
+  </View>
+</View>
 `;

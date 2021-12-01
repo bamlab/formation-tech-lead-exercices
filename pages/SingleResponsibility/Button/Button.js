@@ -32,7 +32,7 @@ export const Button = ({icon, color, backgroundColor, isDisabled, onPress}) => {
         borderRadius: CIRCULAR_CONTAINER_SIZE,
         backgroundColor,
         borderWidth: 1,
-        borderColor: typeof icon === 'string' ? undefined : color,
+        borderColor: typeof icon === 'string' ? 'rgba(0,0,0,0)' : color,
         justifyContent: 'center',
         alignItems: 'center',
       }}>
