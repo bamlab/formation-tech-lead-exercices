@@ -1,3 +1,202 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `<View />`;
+exports[`renders correctly 1`] = `
+Array [
+  <View
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={
+      Object {
+        "bottom": 20,
+        "left": 20,
+        "right": 20,
+        "top": 20,
+      }
+    }
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": undefined,
+        "borderRadius": 40,
+        "borderWidth": 1,
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "blue",
+        }
+      }
+    >
+      A
+    </Text>
+  </View>,
+  <View
+    accessibilityState={
+      Object {
+        "disabled": true,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={
+      Object {
+        "bottom": 20,
+        "left": 20,
+        "right": 20,
+        "top": 20,
+      }
+    }
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "grey",
+        "borderColor": undefined,
+        "borderRadius": 40,
+        "borderWidth": 1,
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      G
+    </Text>
+  </View>,
+  <View
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={
+      Object {
+        "bottom": 20,
+        "left": 20,
+        "right": 20,
+        "top": 20,
+      }
+    }
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "salmon",
+        "borderColor": "red",
+        "borderRadius": 40,
+        "borderWidth": 1,
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 40,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "white",
+          "height": 15,
+          "width": 15,
+        }
+      }
+    />
+  </View>,
+  <View
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={
+      Object {
+        "bottom": 20,
+        "left": 20,
+        "right": 20,
+        "top": 20,
+      }
+    }
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "salmon",
+        "borderColor": undefined,
+        "borderRadius": 40,
+        "borderWidth": 1,
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "red",
+        }
+      }
+    >
+      P
+    </Text>
+  </View>,
+]
+`;
