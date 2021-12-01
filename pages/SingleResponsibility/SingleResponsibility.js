@@ -26,30 +26,26 @@ export const SingleResponsibility = () => {
       {/* basic button */}
       <Button
         icon="arrow"
-        color="grey"
-        backgroundColor="white"
+        colorVariant="primary"
         onPress={() => console.log(1)}
       />
       {/* disabled button */}
       <Button
         icon="graph"
-        color="white"
-        backgroundColor="grey"
+        colorVariant="primary"
         onPress={() => console.log(2)}
         isDisabled={true}
       />
       {/* button with an image as icon */}
       <Button
         icon={<ImageIcon />}
-        color="red"
-        backgroundColor="papayawhip"
+        colorVariant="secondary"
         onPress={() => console.log(3)}
       />
       {/* button with a different color scheme */}
       <Button
         icon="plus"
-        color="red"
-        backgroundColor="papayawhip"
+        colorVariant="secondary"
         onPress={() => console.log(4)}
       />
     </View>

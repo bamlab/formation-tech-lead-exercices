@@ -6,6 +6,7 @@
  * - Make a round button with a centered content that is clickable
  * - Render the Icon component if not an image
  * - Render a different design if the button contains an image
+ * - Apply the correct colors depending on the variant
  *
  * Collaborators
  * - Icon component (imported)
@@ -24,7 +25,21 @@ const HIT_SLOP = {
   left: HIT_SLOP_SIZE,
 };
 
-export const Button = ({icon, color, backgroundColor, isDisabled, onPress}) => {
+const colorVariants = {
+  primary: {
+    enabled: {color: 'grey', backgroundColor: 'white'},
+    disabled: {color: 'white', backgroundColor: 'grey'},
+  },
+  secondary: {
+    enabled: {color: 'red', backgroundColor: 'papayawhip'},
+    disabled: {color: 'papayawhip', backgroundColor: 'salmon'},
+  },
+};
+
+export const Button = ({icon, colorVariant, isDisabled, onPress}) => {
+  const {color, backgroundColor} =
+    colorVariants[colorVariant][isDisabled ? 'disabled' : 'enabled'];
+
   // icon can be a component or a string (the name of the icon)
   let IconComponent;
   if (typeof icon === 'string') {
