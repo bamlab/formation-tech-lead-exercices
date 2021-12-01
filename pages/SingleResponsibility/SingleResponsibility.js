@@ -2,6 +2,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Button} from './Button/Button';
+import {ImageButton} from './Button/ImageButton';
 
 const ImageIcon = () => {
   return (
@@ -37,11 +38,7 @@ export const SingleResponsibility = () => {
         isDisabled={true}
       />
       {/* button with an image as icon */}
-      <Button
-        icon={<ImageIcon />}
-        colorVariant="secondary"
-        onPress={() => console.log(3)}
-      />
+      <ImageButton icon={<ImageIcon />} onPress={() => console.log(3)} />
       {/* button with a different color scheme */}
       <Button
         icon="plus"
