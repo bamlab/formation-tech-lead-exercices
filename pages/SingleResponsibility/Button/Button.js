@@ -1,4 +1,16 @@
 /* eslint-disable react-native/no-inline-styles */
+/**
+ * CRC Card
+ *
+ * Responsibilities
+ * - Make a round button with a centered content that is clickable
+ * - Render the Icon component if not an image
+ * - Render a different design if the button contains an image
+ *
+ * Collaborators
+ * - Icon component (imported)
+ * - SingleReponsibility page (exported to)
+ */
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {Icon} from '../Icon';
