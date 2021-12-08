@@ -14,6 +14,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {RNInternals} from './pages/RNInternals/RNInternals';
 import {EventLoop} from './pages/EventLoop/EventLoop';
 import {SingleResponsibility} from './pages/SingleResponsibility/SingleResponsibility';
+import {DDD} from './pages/DDD/DDD';
 
 const Menu = ({setCurrentPage}) => {
   return (
@@ -27,6 +28,7 @@ const Menu = ({setCurrentPage}) => {
         title={'SingleResponsibility'}
         onPress={() => setCurrentPage('SingleResponsibility')}
       />
+      <Button title={'DDD'} onPress={() => setCurrentPage('DDD')} />
     </>
   );
 };
@@ -39,6 +41,8 @@ const Navigation: () => Node = ({currentPage, setCurrentPage}) => {
       return <EventLoop />;
     case 'SingleResponsibility':
       return <SingleResponsibility />;
+    case 'DDD':
+      return <DDD />;
 
     default:
       return <Menu setCurrentPage={setCurrentPage} />;
