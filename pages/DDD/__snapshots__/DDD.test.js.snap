@@ -7,11 +7,13 @@ exports[`renders correctly 1`] = `
       <PaymentButton
         data={
           Object {
-            "discount": Object {
-              "id": 1,
-              "type": "percent",
-              "value": 10,
-            },
+            "discounts": Array [
+              Object {
+                "id": 1,
+                "type": "percent",
+                "value": 10,
+              },
+            ],
             "products": Array [
               Object {
                 "id": 1,
@@ -134,7 +136,7 @@ exports[`renders correctly 1`] = `
                 ]
               }
             >
-              Payer 29.86€
+              Payer 26.874000000000002€
             </Text>
           </View>
         </View>

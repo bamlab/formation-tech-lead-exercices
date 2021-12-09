@@ -20,12 +20,18 @@ const Header = () => {
 };
 
 const PaymentButton = (props: {
-  data: {products: Product[]; discounts: Discount[]};
+  data: {products: Product[]; discounts?: Discount[]};
 }) => {
-  const price = props.data.products.reduce(
+  const priceWithoutDiscounts = props.data.products.reduce(
     (total, product) => total + product.price,
     0,
   );
+
+  const price = props.data.discounts
+    ? props.data.discounts.reduce((total, discount) => {
+        return (total * (100 - discount.value)) / 100;
+      }, priceWithoutDiscounts)
+    : priceWithoutDiscounts;
 
   return (
     <Button

@@ -11,11 +11,13 @@ const createBaseBasket = () => ({
       price: 17.47,
     },
   ],
-  discount: {
-    id: 1,
-    type: 'percent',
-    value: 10,
-  },
+  discounts: [
+    {
+      id: 1,
+      type: 'percent',
+      value: 10,
+    },
+  ],
 });
 
 export const getProducts = async basketId => {
@@ -27,16 +29,18 @@ export const getProducts = async basketId => {
 
   const basket = createBaseBasket();
 
-  // basket with discount on product
+  // basket with discounts on product
   if (basketId === 2) {
     return {
       ...basket,
-      discount: {
-        id: 2,
-        type: 'percent',
-        value: 20,
-        productId: 1,
-      },
+      discounts: [
+        {
+          id: 2,
+          type: 'percent',
+          value: 20,
+          productId: 1,
+        },
+      ],
     };
   }
 
@@ -49,24 +53,6 @@ export const getProducts = async basketId => {
         name: `album des Beatles #${index}`,
         price: Math.round(Math.random() * 1000),
       })),
-    };
-  }
-
-  // basket with weird total
-  if (basketId === 4) {
-    return {
-      products: [
-        {
-          id: 1,
-          name: 'gomme',
-          price: 0.1,
-        },
-        {
-          id: 2,
-          name: 'fleur',
-          price: 0.2,
-        },
-      ],
     };
   }
 
