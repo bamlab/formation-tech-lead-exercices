@@ -78,12 +78,20 @@ export const DDD = () => {
     console.log(data.products);
   }
 
+  if (data && filterType === 'ID') {
+    data.products = data.products.sort(
+      (productA: Product, productB: Product) => productA.id - productB.id,
+    );
+    console.log(data.products);
+  }
+
   return (
     <View>
       {loading ? (
         <Text>Loading</Text>
       ) : (
         <FlatList
+          keyExtractor={item => item.id}
           ListHeaderComponent={
             <Header orderById={orderById} orderByPrice={orderByPrice} />
           }

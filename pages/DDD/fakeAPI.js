@@ -48,7 +48,7 @@ export const getProducts = async basketId => {
   if (basketId === 3) {
     return {
       ...basket,
-      products: Array.from(Array(200)).map((_, index) => ({
+      products: Array.from(Array(2000)).map((_, index) => ({
         id: index,
         name: `album des Beatles #${index}`,
         price: Math.round(Math.random() * 1000),
