@@ -4,6 +4,7 @@ import {View, Text, FlatList, Button, Alert} from 'react-native';
 import {Discount, Product} from './interface';
 //@ts-ignore
 import {getProducts} from './fakeAPI';
+import {applyDiscountToPrice, computeProductsTotalPrice} from './priceUtils';
 
 const ProductItem = (props: {product: Product}) => {
   return (
@@ -30,14 +31,10 @@ const Header = (props: {orderById: () => void; orderByPrice: () => void}) => {
 const PaymentButton = (props: {
   data: {products: Product[]; discounts?: Discount[]};
 }) => {
-  const priceWithoutDiscounts =
-    props.data.products.reduce((total, product) => total + product.price, 0) /
-    100;
+  const priceWithoutDiscounts = computeProductsTotalPrice(props.data.products);
 
   const price = props.data.discounts
-    ? props.data.discounts.reduce((total, discount) => {
-        return (total * (100 - discount.value)) / 100;
-      }, priceWithoutDiscounts)
+    ? applyDiscountToPrice(props.data.discounts, priceWithoutDiscounts)
     : priceWithoutDiscounts;
 
   return (
@@ -75,14 +72,12 @@ export const DDD = () => {
     data.products = data.products.sort(
       (productA: Product, productB: Product) => productB.price - productA.price,
     );
-    console.log(data.products);
   }
 
   if (data && filterType === 'ID') {
     data.products = data.products.sort(
       (productA: Product, productB: Product) => productA.id - productB.id,
     );
-    console.log(data.products);
   }
 
   return (
