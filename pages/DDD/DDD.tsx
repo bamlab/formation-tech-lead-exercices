@@ -9,7 +9,7 @@ const ProductItem = (props: {product: Product}) => {
   return (
     <View>
       <Text>
-        {props.product.name} - {props.product.price}€
+        {props.product.name} - {props.product.price / 100}€
       </Text>
     </View>
   );
@@ -22,10 +22,9 @@ const Header = () => {
 const PaymentButton = (props: {
   data: {products: Product[]; discounts?: Discount[]};
 }) => {
-  const priceWithoutDiscounts = props.data.products.reduce(
-    (total, product) => total + product.price,
-    0,
-  );
+  const priceWithoutDiscounts =
+    props.data.products.reduce((total, product) => total + product.price, 0) /
+    100;
 
   const price = props.data.discounts
     ? props.data.discounts.reduce((total, discount) => {

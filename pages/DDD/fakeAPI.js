@@ -3,12 +3,12 @@ const createBaseBasket = () => ({
     {
       id: 1,
       name: 'Post its bleus',
-      price: 12.39,
+      price: 1239,
     },
     {
       id: 2,
       name: 'Post its rouges',
-      price: 17.47,
+      price: 1747,
     },
   ],
   discounts: [
