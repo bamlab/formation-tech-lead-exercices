@@ -15,8 +15,16 @@ const ProductItem = (props: {product: Product}) => {
   );
 };
 
-const Header = () => {
-  return <Text>Products</Text>;
+const Header = (props: {orderById: () => void; orderByPrice: () => void}) => {
+  return (
+    <View>
+      <Text>Products</Text>
+      <View style={{flexDirection: 'row'}}>
+        <Button title="tri par id" onPress={props.orderById} />
+        <Button title="tri par prix" onPress={props.orderByPrice} />
+      </View>
+    </View>
+  );
 };
 
 const PaymentButton = (props: {
@@ -58,7 +66,17 @@ function useQuery<Data>(query: () => Promise<Data>) {
 }
 
 export const DDD = () => {
-  const {data, loading} = useQuery<any>(() => getProducts(1));
+  let {data, loading} = useQuery<any>(() => getProducts(1));
+  const [filterType, setFilterType] = useState('ID');
+  const orderById = () => setFilterType('ID');
+  const orderByPrice = () => setFilterType('PRICE');
+
+  if (data && filterType === 'PRICE') {
+    data.products = data.products.sort(
+      (productA: Product, productB: Product) => productB.price - productA.price,
+    );
+    console.log(data.products);
+  }
 
   return (
     <View>
@@ -66,7 +84,9 @@ export const DDD = () => {
         <Text>Loading</Text>
       ) : (
         <FlatList
-          ListHeaderComponent={<Header />}
+          ListHeaderComponent={
+            <Header orderById={orderById} orderByPrice={orderByPrice} />
+          }
           data={data.products}
           renderItem={info => <ProductItem product={info.item} />}
           ListFooterComponent={<PaymentButton data={data} />}

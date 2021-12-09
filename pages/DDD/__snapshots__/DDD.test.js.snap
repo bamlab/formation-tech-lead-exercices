@@ -30,7 +30,12 @@ exports[`renders correctly 1`] = `
         }
       />
     }
-    ListHeaderComponent={<Header />}
+    ListHeaderComponent={
+      <Header
+        orderById={[Function]}
+        orderByPrice={[Function]}
+      />
+    }
     data={
       Array [
         Object {
@@ -65,9 +70,103 @@ exports[`renders correctly 1`] = `
       <View
         onLayout={[Function]}
       >
-        <Text>
-          Products
-        </Text>
+        <View>
+          <Text>
+            Products
+          </Text>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 18,
+                        "margin": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  tri par id
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 18,
+                        "margin": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  tri par prix
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
       </View>
       <View
         onLayout={[Function]}
@@ -104,6 +203,245 @@ exports[`renders correctly 1`] = `
           collapsable={false}
           focusable={true}
           nativeID="animatedComponent"
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Payer 26.874000000000002€
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders correctly 2`] = `
+<View>
+  <RCTScrollView
+    ListFooterComponent={
+      <PaymentButton
+        data={
+          Object {
+            "discounts": Array [
+              Object {
+                "id": 1,
+                "type": "percent",
+                "value": 10,
+              },
+            ],
+            "products": Array [
+              Object {
+                "id": 2,
+                "name": "Post its rouges",
+                "price": 1747,
+              },
+              Object {
+                "id": 1,
+                "name": "Post its bleus",
+                "price": 1239,
+              },
+            ],
+          }
+        }
+      />
+    }
+    ListHeaderComponent={
+      <Header
+        orderById={[Function]}
+        orderByPrice={[Function]}
+      />
+    }
+    data={
+      Array [
+        Object {
+          "id": 2,
+          "name": "Post its rouges",
+          "price": 1747,
+        },
+        Object {
+          "id": 1,
+          "name": "Post its bleus",
+          "price": 1239,
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+      >
+        <View>
+          <Text>
+            Products
+          </Text>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 18,
+                        "margin": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  tri par id
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 18,
+                        "margin": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  tri par prix
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <Text>
+            Post its rouges
+             - 
+            17.47
+            €
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <Text>
+            Post its bleus
+             - 
+            12.39
+            €
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
