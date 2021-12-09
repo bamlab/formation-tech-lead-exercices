@@ -3,6 +3,31 @@
 exports[`renders correctly 1`] = `
 <View>
   <RCTScrollView
+    ListFooterComponent={
+      <PaymentButton
+        data={
+          Object {
+            "discount": Object {
+              "id": 1,
+              "type": "percent",
+              "value": 10,
+            },
+            "products": Array [
+              Object {
+                "id": 1,
+                "name": "Post its bleus",
+                "price": 12.39,
+              },
+              Object {
+                "id": 2,
+                "name": "Post its rouges",
+                "price": 17.47,
+              },
+            ],
+          }
+        }
+      />
+    }
     ListHeaderComponent={<Header />}
     data={
       Array [
@@ -66,6 +91,52 @@ exports[`renders correctly 1`] = `
             17.47
             €
           </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          nativeID="animatedComponent"
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Payer 29.86€
+            </Text>
+          </View>
         </View>
       </View>
     </View>

@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
-import {Product} from './interface';
+import {View, Text, FlatList, Button, Alert} from 'react-native';
+import {Discount, Product} from './interface';
 //@ts-ignore
 import {getProducts} from './fakeAPI';
 
@@ -17,6 +17,22 @@ const ProductItem = (props: {product: Product}) => {
 
 const Header = () => {
   return <Text>Products</Text>;
+};
+
+const PaymentButton = (props: {
+  data: {products: Product[]; discounts: Discount[]};
+}) => {
+  const price = props.data.products.reduce(
+    (total, product) => total + product.price,
+    0,
+  );
+
+  return (
+    <Button
+      title={`Payer ${price}€`}
+      onPress={() => Alert.alert(`${price}€`)}
+    />
+  );
 };
 
 function useQuery<Data>(query: () => Promise<Data>) {
@@ -37,7 +53,7 @@ function useQuery<Data>(query: () => Promise<Data>) {
 }
 
 export const DDD = () => {
-  const {data, loading} = useQuery(() => getProducts(1));
+  const {data, loading} = useQuery<any>(() => getProducts(1));
 
   return (
     <View>
@@ -46,8 +62,9 @@ export const DDD = () => {
       ) : (
         <FlatList
           ListHeaderComponent={<Header />}
-          data={(data as any).products}
+          data={data.products}
           renderItem={info => <ProductItem product={info.item} />}
+          ListFooterComponent={<PaymentButton data={data} />}
         />
       )}
     </View>
