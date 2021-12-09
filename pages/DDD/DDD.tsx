@@ -1,10 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {View, Text, FlatList, Button, Alert} from 'react-native';
 import {Discount, Product} from './interface';
 //@ts-ignore
 import {getProducts} from './fakeAPI';
 import {applyDiscountToPrice, computeProductsTotalPrice} from './priceUtils';
+import {useQuery} from './useQuery';
 
 const ProductItem = (props: {product: Product}) => {
   return (
@@ -44,23 +45,6 @@ const PaymentButton = (props: {
     />
   );
 };
-
-function useQuery<Data>(query: () => Promise<Data>) {
-  const [data, setData] = useState<Data | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  const loadData = async () => {
-    const d = await query();
-    setData(d);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  return {data, loading};
-}
 
 export const DDD = () => {
   let {data, loading} = useQuery<any>(() => getProducts(1));
