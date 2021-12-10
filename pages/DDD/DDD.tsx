@@ -4,14 +4,18 @@ import {View, Text, FlatList, Button, Alert} from 'react-native';
 import {Discount, Product} from './interface';
 //@ts-ignore
 import {getProducts} from './fakeAPI';
-import {applyDiscountToPrice, computeProductsTotalPrice} from './priceUtils';
+import {
+  applyDiscountToPrice,
+  computeProductsTotalPrice,
+  formatPriceInCents,
+} from './priceUtils';
 import {useQuery} from './useQuery';
 
 const ProductItem = (props: {product: Product}) => {
   return (
     <View>
       <Text>
-        {props.product.name} - {props.product.price / 100}€
+        {props.product.name} - {formatPriceInCents(props.product.price)}€
       </Text>
     </View>
   );
@@ -40,8 +44,8 @@ const PaymentButton = (props: {
 
   return (
     <Button
-      title={`Payer ${price}€`}
-      onPress={() => Alert.alert(`${price}€`)}
+      title={`Payer ${formatPriceInCents(price)}€`}
+      onPress={() => Alert.alert(`${formatPriceInCents(price)}€`)}
     />
   );
 };

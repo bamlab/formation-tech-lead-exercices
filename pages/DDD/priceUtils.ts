@@ -1,14 +1,25 @@
 import {Discount, Product} from './interface';
 
-export const computeProductsTotalPrice = (products: Product[]): number => {
-  return products.reduce((total, product) => total + product.price, 0) / 100;
+export type PriceInCents = number & {_brand: 'PriceInCents'};
+
+export const computeProductsTotalPrice = (
+  products: Product[],
+): PriceInCents => {
+  return products.reduce(
+    (total, product) => total + product.price,
+    0,
+  ) as PriceInCents;
 };
 
 export const applyDiscountToPrice = (
   discounts: Discount[],
-  priceWithoutDiscounts: number,
-): number => {
-  return discounts.reduce((total, discount) => {
+  priceWithoutDiscounts: PriceInCents,
+): PriceInCents => {
+  const price = discounts.reduce<number>((total, discount) => {
     return (total * (100 - discount.value)) / 100;
   }, priceWithoutDiscounts);
+  return Math.floor(price) as PriceInCents;
 };
+
+export const formatPriceInCents = (price: PriceInCents): string =>
+  `${price / 100}`;
