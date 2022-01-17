@@ -1,26 +1,35 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'todolist',
   initialState: {
-    value: 0,
+    todos: [],
+    lastID: 0,
   },
   reducers: {
-    incremented: state => {
+    addTodo: (state, {payload}) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.value += 1;
+      state.todos.push({...payload.todo, id: state.lastID});
+      state.lastID += 1;
     },
-    decremented: state => {
-      state.value -= 1;
+    removeTodo: (state, {payload}) => {
+      const position = state.todos.findIndex(
+        todo => todo.id === payload.todoID,
+      );
+      state.todos.splice(position, 1);
     },
   },
 });
 
-export const {incremented, decremented} = counterSlice.actions;
+export const {addTodo, removeTodo} = counterSlice.actions;
 
 export const counterSelector = state => {
-  return state.value;
+  return state.todos.length;
+};
+
+export const todosSelector = state => {
+  return state.todos;
 };
