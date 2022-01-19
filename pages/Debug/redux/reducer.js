@@ -27,7 +27,7 @@ export const counterSlice = createSlice({
 export const {addTodo, removeTodo} = counterSlice.actions;
 
 export const counterSelector = state => {
-  return state.todos.length;
+  return state.todos.reduce((total, todo) => `${total} ${todo.text}`, '');
 };
 
 export const todosSelector = state => {

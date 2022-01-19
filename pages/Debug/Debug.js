@@ -23,7 +23,6 @@ const Header = () => {
       <TextInput onChangeText={text => setValue(text)} value={value} />
       <Button
         onPress={() => {
-          console.log('here');
           dispatch(
             addTodo({
               todo: {
@@ -34,6 +33,20 @@ const Header = () => {
           setValue('');
         }}
         title="add todo"
+      />
+      <Button
+        onPress={() => {
+          for (let i = 0; i < 200; i++) {
+            dispatch(
+              addTodo({
+                todo: {
+                  text: `blabka ${Math.random()}`,
+                },
+              }),
+            );
+          }
+        }}
+        title="Populate todos"
       />
     </>
   );
