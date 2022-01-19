@@ -1,10 +1,9 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, nanoid} from '@reduxjs/toolkit';
 
 export const counterSlice = createSlice({
   name: 'todolist',
   initialState: {
     todos: [],
-    lastID: 0,
   },
   reducers: {
     addTodo: (state, {payload}) => {
@@ -12,8 +11,7 @@ export const counterSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.todos.push({...payload.todo, id: state.lastID});
-      state.lastID += 1;
+      state.todos.push({...payload.todo, id: nanoid()});
     },
     removeTodo: (state, {payload}) => {
       const position = state.todos.findIndex(
