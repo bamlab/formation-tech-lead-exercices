@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import type {Node} from 'react';
 import {
   Button,
@@ -22,7 +22,7 @@ import {RNInternals} from './pages/RNInternals/RNInternals';
 import {EventLoop} from './pages/EventLoop/EventLoop';
 import {SingleResponsibility} from './pages/SingleResponsibility/SingleResponsibility';
 import {Debug} from './pages/Debug/Debug';
-import {store} from './pages/Debug/redux/store';
+import {createAppStore} from './pages/Debug/redux/store';
 import {counterSelector} from './pages/Debug/redux/reducer';
 
 const Menu = ({setCurrentPage}) => {
@@ -63,6 +63,11 @@ const Navigation: () => Node = ({currentPage, setCurrentPage}) => {
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  const [store, setStore] = useState(null);
+
+  useEffect(() => {
+    setStore(createAppStore());
+  }, []);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -71,15 +76,20 @@ const App: () => Node = () => {
   const [currentPage, setCurrentPage] = useState(null);
 
   return (
-    <Provider store={store}>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        {!!currentPage && (
-          <Button title="back to menu" onPress={() => setCurrentPage(null)} />
-        )}
-        <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      </SafeAreaView>
-    </Provider>
+    store && (
+      <Provider store={store}>
+        <SafeAreaView style={backgroundStyle}>
+          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          {!!currentPage && (
+            <Button title="back to menu" onPress={() => setCurrentPage(null)} />
+          )}
+          <Navigation
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        </SafeAreaView>
+      </Provider>
+    )
   );
 };
 

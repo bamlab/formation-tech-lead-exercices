@@ -23,13 +23,14 @@ const Header = () => {
       <TextInput onChangeText={text => setValue(text)} value={value} />
       <Button
         onPress={() => {
-          dispatch(
-            addTodo({
+          dispatch({
+            type: 'ADD_TODO_SAGA',
+            payload: {
               todo: {
                 text: value,
               },
-            }),
-          );
+            },
+          });
           setValue('');
         }}
         title="add todo"
