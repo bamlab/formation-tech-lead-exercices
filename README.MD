@@ -8,3 +8,4 @@ Each challenge has a page on the app, and a `docs` page explaining what is expec
 - [React Native Internals](./docs/RNInternals.md)
 - [Javascript Event Loop](./docs/EventLoop.md)
 - [Single Responsibility Principle](./docs/SingleResponsibility.md)
+- [Debugging](./docs/Debugging.md)
