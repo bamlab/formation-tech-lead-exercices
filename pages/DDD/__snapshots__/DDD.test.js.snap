@@ -235,7 +235,7 @@ exports[`renders correctly 1`] = `
                 ]
               }
             >
-              Payer 26.874000000000002€
+              Payer 26.87€
             </Text>
           </View>
         </View>
@@ -474,7 +474,7 @@ exports[`renders correctly 2`] = `
                 ]
               }
             >
-              Payer 26.874000000000002€
+              Payer 26.87€
             </Text>
           </View>
         </View>

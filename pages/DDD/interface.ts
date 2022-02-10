@@ -1,6 +1,8 @@
+import {PriceInCents} from './priceUtils';
+
 export interface Product {
   id: number;
-  price: number;
+  price: PriceInCents;
   name: string;
 }
 
